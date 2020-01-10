@@ -30,17 +30,33 @@ module.exports = class DiscordScores extends EventEmitter {
         super()
 
         this.client = client
+        this.emojiKeys = []
+        this.values = []
 
         if(Array.isArray(emojiKeys)){
-            this.emojiKeys = emojiKeys
-        }else if(typeof emojiKeys === "string"){
-            this.emojiKeys = [emojiKeys]
-        }else{
-            this.emojiKeys = []
-            for(const emojiKey in emojiKeys){
-                this.emojiKeys.push(emojiKey)
-                this.values.push(emojiKeys[emojiKey])
+
+            for(const emojiKey of emojiKeys){
+                if(typeof emojiKey === "string"){
+                    this.emojiKeys.push(emojiKey)
+                }else{
+                    for(const key in emojiKey){
+                        this.emojiKeys.push(key)
+                        this.values.push(emojiKey[key])
+                    }
+                }
             }
+
+        }else if(typeof emojiKeys === "string"){
+
+            this.emojiKeys = [emojiKeys]
+
+        }else{
+
+            for(const key in emojiKeys){
+                this.emojiKeys.push(key)
+                this.values.push(emojiKeys[key])
+            }
+
         }
 
         /**
@@ -83,9 +99,11 @@ module.exports = class DiscordScores extends EventEmitter {
 
         const emoji = this.client.emojis.get(emojiKey) || emojiKey
 
-        const value = this.values ? this.values[this.emojiKeys.indexOf(emojiKey)] : 0
+        const value = this.values.length > 0 ? this.values[this.emojiKeys.indexOf(emojiKey)] : 0
 
         const message = await channel.fetchMessage(eventData.message_id)
+
+        if(message.author.id === user.id || user.bot || message.author.bot) return
 
         /**
          * Emit score moved event

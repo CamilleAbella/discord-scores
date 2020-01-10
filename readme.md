@@ -17,6 +17,7 @@ score.on( 'add', event => {
     // by event.user 
     // on event.message
     // in event.channel
+    // for event.message.author
 
 })
 ```
@@ -29,7 +30,7 @@ const score = new DiscordScores( client, { '👍': 1 } )
 score.on( 'remove', event => {
 
     // 👍 is remove
-    // The score of user drops by 1 (event.value)
+    // The score of message.author drops by 1 (event.value)
 
 })
 ```
@@ -45,7 +46,7 @@ const score = new DiscordScores( client, [
 score.on( 'remove', event => {
 
     // 👎 is remove
-    // The score of user increases by 1 (the reverse of this value)
+    // The score of message.author increases by 1 (the reverse of this value)
 
 })
 ```

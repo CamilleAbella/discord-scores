@@ -1,6 +1,6 @@
 {
   "name": "discord-scores",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "manage reaction points for your Discord server",
   "main": "index.js",
   "scripts": {

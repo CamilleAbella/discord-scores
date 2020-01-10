@@ -49,7 +49,7 @@ module.exports = class DiscordScores extends EventEmitter {
          * @param {onRawCallback} onRaw
          */
 
-        this.client.on('raw', this.onRaw)
+        this.client.on('raw', event => this.onRaw(event))
 
     }
 
@@ -62,8 +62,8 @@ module.exports = class DiscordScores extends EventEmitter {
     async onRaw( event ){
 
         const eventNames = [
-            MESSAGE_REACTION_REMOVE,
-            MESSAGE_REACTION_ADD
+            "MESSAGE_REACTION_REMOVE",
+            "MESSAGE_REACTION_ADD"
         ]
 
         const eventData = event.d

@@ -1,0 +1,19 @@
+{
+  "name": "discord-scores",
+  "version": "1.0.0",
+  "description": "manage reaction points for your Discord server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ghom",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CamilleAbella/discord-scores.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CamilleAbella/discord-scores/issues"
+  },
+  "homepage": "https://github.com/CamilleAbella/discord-scores#readme"
+}

@@ -27,6 +27,8 @@ module.exports = class DiscordScores extends EventEmitter {
 
     constructor( client, emojiKeys ){
 
+        super()
+
         this.client = client
 
         if(Array.isArray(emojiKeys)){

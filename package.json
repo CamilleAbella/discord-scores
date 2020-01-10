@@ -1,6 +1,6 @@
 {
   "name": "discord-scores",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "manage reaction points for your Discord server",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,17 @@
   "bugs": {
     "url": "https://github.com/CamilleAbella/discord-scores/issues"
   },
-  "homepage": "https://github.com/CamilleAbella/discord-scores#readme"
+  "homepage": "https://github.com/CamilleAbella/discord-scores#readme",
+  "keywords": [
+    "discord",
+    "reaction",
+    "react",
+    "score",
+    "points",
+    "point",
+    "emoji",
+    "emote",
+    "raw",
+    "event"
+  ]
 }

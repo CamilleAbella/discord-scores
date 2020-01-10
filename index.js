@@ -12,6 +12,7 @@ const EventEmitter = require('events')
  * @property {DiscordGuildTextChannel} channel
  * @property {DiscordMessage} message
  * @property {DiscordUser} user
+ * @property {number} value
  */
 
 module.exports = class DiscordScores extends EventEmitter {
@@ -80,6 +81,8 @@ module.exports = class DiscordScores extends EventEmitter {
 
         const emoji = this.client.emojis.get(emojiKey) || emojiKey
 
+        const value = this.values ? this.values[this.emojiKeys.indexOf(emojiKey)] : 0
+
         const message = await channel.fetchMessage(eventData.message_id)
 
         /**
@@ -92,7 +95,8 @@ module.exports = class DiscordScores extends EventEmitter {
             emoji: emoji,
             user: user,
             channel: channel,
-            message: message
+            message: message,
+            value: value
         })
 
     }
